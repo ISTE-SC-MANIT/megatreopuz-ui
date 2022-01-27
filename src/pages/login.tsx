@@ -1,14 +1,14 @@
-import React from "react";
-import { NextPage } from "next";
-import FormPage from "../components/FormPage";
-import LoginForm from "../components/Login/form";
-import firebase from "firebase/app";
-import { graphql, useMutation } from "relay-hooks";
-import { loginMutation } from "../__generated__/loginMutation.graphql";
-import { useRouter } from "next/dist/client/router";
-import { useCustomNotification } from "../components/App/useNotification";
-import cookie from "js-cookie";
-import LinearLoader from "../components/App/LinearLoader";
+import React from 'react';
+import { NextPage } from 'next';
+import FormPage from '../components/FormPage';
+import LoginForm from '../components/Login/form';
+import firebase from 'firebase/app';
+import { graphql, useMutation } from 'relay-hooks';
+import { loginMutation } from '../__generated__/loginMutation.graphql';
+import { useRouter } from 'next/dist/client/router';
+import { useCustomNotification } from '../components/App/useNotification';
+import cookie from 'js-cookie';
+import LinearLoader from '../components/App/LinearLoader';
 // import Loader from "../components/App/Loader";
 
 const mutation = graphql`
@@ -49,7 +49,7 @@ const Login: NextPage = () => {
       redirectUser(id);
     } catch (e) {
       console.error(e);
-      showNotification("Invalid Login Credentials", "error");
+      showNotification('Invalid Login Credentials', 'error');
     } finally {
       setLoading(false);
     }
@@ -69,17 +69,19 @@ const Login: NextPage = () => {
         idToken: idToken,
       },
     });
-    cookie.remove("authorization");
+    console.log(mutationResult);
 
-    cookie.set("authorization", mutationResult.createUserSession.cookie, {
+    cookie.remove('authorization');
+
+    cookie.set('authorization', mutationResult.createUserSession.cookie, {
       // expires: 6.048e8,
       // sameSite: "strict"
     });
 
     if (mutationResult.createUserSession.initialised) {
-      showNotification("User was Successfully Logged In", "success");
-      router.push("/dashboard");
-    } else router.push("/signup/completeDetails");
+      showNotification('User was Successfully Logged In', 'success');
+      router.push('/dashboard');
+    } else router.push('/signup/completeDetails');
     setLoading(false);
   };
 
@@ -89,12 +91,12 @@ const Login: NextPage = () => {
 
       <FormPage
         loading={loading}
-        title="Log in to Megatreopuz"
-        formID="login-form"
-        submitLabel="Login"
+        title='Log in to Megatreopuz'
+        formID='login-form'
+        submitLabel='Login'
         googleButton
         googleExec={onGoogleLogin}
-        googleTitle={"Login With Google"}
+        googleTitle={'Login With Google'}
       >
         <LoginForm onSubmit={onSubmit} />
       </FormPage>
