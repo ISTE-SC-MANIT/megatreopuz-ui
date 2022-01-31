@@ -133,7 +133,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
               </Typography>
             ) : (
               <Typography variant="h5" align="center">
-                Contest has Ended!
+                Contest will start soon!
               </Typography>
             )}
           </Box>
@@ -150,12 +150,12 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
                 }
                 unit={"position"}
                 caption={
-                  "Shows your rank among total number of participants in the Contest"
+                  "Shows your rank among total number of participants in the contest"
                 }
               />
             </Grid>
             {alert}
-            <Grid item lg={5} md={6} xs={12}>
+            {/* <Grid item lg={5} md={6} xs={12}>
               <CustomCard
                 Icon={BrushIcon}
                 color={"#2196F3"}
@@ -166,7 +166,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
                   "Shows total number of attempts made by you in the Contest"
                 }
               />
-            </Grid>
+            </Grid> */}
             <Grid item lg={5} md={6} xs={12}>
               <CustomCard
                 Icon={SpellcheckIcon}
@@ -174,7 +174,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
                 heading={"Correct Questions"}
                 data={`${viewer.solvedQuestions}`}
                 unit={"questions"}
-                caption={"Shows how much questions you have done correctly"}
+                caption={"Shows how many questions you have done correctly"}
               />
             </Grid>
             <Grid item lg={5} md={6} xs={12}>
@@ -189,13 +189,13 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
                       : hoursEnd > 0
                       ? `${hoursEnd} hours`
                       : `${minutesEnd} minutes`
-                    : "Contest has Ended !"
+                    : "Contest will start soon !"
                 }
                 unit={""}
-                caption={"Shows time remaining for Contest to be concluded"}
+                caption={"Shows time remaining for the contest to be concluded"}
               />
             </Grid>
-            <Grid item md={6} xs={12}>
+            {/* <Grid item md={6} xs={12}>
               <Card elevation={3} className={classes.lineChart}>
                 <Chart
                   rank={
@@ -207,7 +207,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
                   attempts={viewer.totalAttempts}
                 />
               </Card>
-            </Grid>
+            </Grid> */}
           </Grid>
         </main>
       )}{" "}
