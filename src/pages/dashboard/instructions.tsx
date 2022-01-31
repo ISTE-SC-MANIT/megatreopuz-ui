@@ -50,7 +50,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
   const classes = useStyles();
 
   const instructions = [
-    "1. Megatreopuz '21 will be live from 13th February 2021 at 6:00 pm till 19th February 2021.",
+    "1. Megatreopuz '22 will be live from 20th February 2022 at 6:00 pm till 26th February 2022.",
     "2. A participant will receive successive questions. They will keep receiving questions until the cryptic hunt ends.",
     "3. The participant who solves the most number of questions in the least amount of time will be declared as the winner.",
     "4. The competition is open to everyone, there are no restrictions whatsoever.",
@@ -58,12 +58,12 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
     "6. A participant needs to solve at least one question to make a place on the leaderboard.",
     "7. The hints for the questions will be provided on our Facebook page.",
     "8. You can attempt the question as many times as you want. The total number of attempts will not be counted towards ranking.",
-    "9. In any case the decision of ISTE SC MANIT will be final.",
+    "9. In any case, the decision of ISTE SC MANIT will be final.",
     "10. The winners need to be an account holder in an Indian bank to claim his/her cash prize.",
   ];
   const answerInstructions = [
     "1. Answers can be case insensitive.",
-    "2. Whether you add space between the words or not both will be considered correct.",
+    "2. Whether you add space between the words or not, both will be considered correct.",
     "3. Do not use special symbols and numbers while answering the questions (ex: !/*=#$).",
   ];
   return (

@@ -186,7 +186,7 @@ const Landing: React.FC = () => {
             <Box className={classes.margin}>
               <Box marginBottom={5}>
                 <Typography variant="h5" align="center">
-                  13 - 19 Feb 2021
+                  20 - 26 Feb 2022
                 </Typography>
               </Box>
               <Box className={classes.flexColumn}>
