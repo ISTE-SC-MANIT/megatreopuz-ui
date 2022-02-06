@@ -94,8 +94,8 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
   }
 
   const current = moment();
-  const start = moment([2021, 1, 13, 18]);
-  const end = moment([2021, 1, 19, 18]);
+  const start = moment([2022, 1,20, 18]);
+  const end = moment([2022, 1,26, 18]);
   const timeLeftStart = start.diff(current, "hours");
   const timeLeftEnd = end.diff(current, "hours");
   const minutesStart = start.diff(current, "minutes");
@@ -124,7 +124,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
               <Typography variant="h5" align="center">
                 Contest will start in{" "}
                 {minutesStart > 60
-                  ? `${hoursStart} hours !`
+                  ? `${daysStart} Days ${hoursStart} Hours !`
                   : `${minutesStart} minutes !`}
               </Typography>
             ) : minutesEnd >= 0 ? (
@@ -185,7 +185,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
                 data={
                   minutesEnd >= 0
                     ? daysEnd > 0
-                      ? `${daysEnd}d ${hoursEnd}h`
+                      ? `${daysEnd}d`
                       : hoursEnd > 0
                       ? `${hoursEnd} hours`
                       : `${minutesEnd} minutes`
