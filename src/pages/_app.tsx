@@ -77,7 +77,9 @@ function CustomApp(props: AppProps): React.ReactElement {
                 retry: () => void;
               }) => {
                 if (error) {
+                  
                   showNotification("Please login to Continue", "error");
+                  router.push('/login')
                   return null;
                 } else if (props) {
                   return (
