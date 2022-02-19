@@ -124,8 +124,8 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
               <Typography variant="h5" align="center">
                 Contest will start in{" "}
                 {minutesStart > 60
-                  ? `${hoursStart} Hours !`
-                  : `${minutesStart} minutes !`}
+                  ? ` ${hoursStart} Hours ${minutesStart%60} minutes !`
+                  : `${minutesStart%60} minutes !`}
               </Typography>
             ) : minutesEnd >= 0 ? (
               <Typography variant="h5" align="center">
