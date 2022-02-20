@@ -260,8 +260,8 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
     });
   };
   const current = moment();
-  const start = moment([2022, 1,20,18]);
-  const end = moment([2022, 1,26, 18]);
+  const start = moment([2022, 1, 20, 18]);
+  const end = moment([2022, 1, 26, 18]);
   const timeLeftStart = start.diff(current);
   const timeLeftEnd = end.diff(current);
   const contestStart = timeLeftStart < 0 && timeLeftEnd >= 0;
@@ -357,16 +357,16 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
             </DialogActions>
           </Paper>
         </Grid>
-      ) 
-       : (
-        <Box mt={20} className={classes.nullText}>
-        <Typography variant="h3" align="center">
-          {/* That`&apos;`s All for now. Stay tuned for next questions. we will be
+      )
+        : (
+          <Box mt={20} className={classes.nullText}>
+            <Typography variant="h3" align="center">
+              {/* That`&apos;`s All for now. Stay tuned for next questions. we will be
           back soon */}
-         {timeLeftEnd>0 ? Boolean(data) ? 'The contest will start soon !' : 'The contest has ended !' :'The contest has ended !' } 
-        </Typography>
-      </Box>
-      )}
+              {timeLeftEnd > 0 ? Boolean(data) ? 'The contest will start soon !' : 'That`&apos;`s All for now. Stay tuned. we will be back soon' : 'The contest has ended !'}
+            </Typography>
+          </Box>
+        )}
     </div>
   );
 };
