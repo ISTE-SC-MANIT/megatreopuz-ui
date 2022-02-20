@@ -36,6 +36,8 @@ import { useQuery, useRelayEnvironment } from "relay-hooks";
 import { GetLeaderBoardQuery } from "../../__generated__/GetLeaderBoardQuery.graphql";
 import ErrorComponent from "../../components/App/ErrorComponent";
 import LoadingScreen from "../../components/App/QueryLoaderScreen";
+import Pagination from '@material-ui/lab/Pagination';
+
 
 const useStyles = makeStyles((theme) => ({
   // root: {
@@ -111,11 +113,17 @@ const useStyles = makeStyles((theme) => ({
 
 const LeaderBoard: NextPage<ProtectedPageProps> = ({ viewer }) => {
   const classes = useStyles();
-
+ 
   const { data, error, retry, isLoading } = useQuery<GetLeaderBoardQuery>(
     query
   );
+  const [currentPage, setCurrentPage] = React.useState<any>(1);
+  const [postsPerPage] = React.useState(2);
+  const indexOfLastPost : any = currentPage * postsPerPage;
+  const indexOfFirstPost : any= indexOfLastPost - postsPerPage;
+  const currentPosts : any =  data?.getLeaderBoard.slice(indexOfFirstPost, indexOfLastPost);
 
+  
   return (
     <div>
       <CustomDrawer
@@ -155,9 +163,9 @@ const LeaderBoard: NextPage<ProtectedPageProps> = ({ viewer }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {data.getLeaderBoard.map((row, index) => (
+                  {currentPosts.map((row, index) => (
                     <TableRow key={index}>
-                      <TableCell align="center">{index + 1}</TableCell>
+                      <TableCell align="center">{index+((currentPage-1)*postsPerPage)+1}</TableCell>
                       {/* <TableCell align="center">{row.name}</TableCell> */}
                       <TableCell align="center">{row.username}</TableCell>
                       <TableCell align="center">
@@ -167,6 +175,10 @@ const LeaderBoard: NextPage<ProtectedPageProps> = ({ viewer }) => {
                   ))}
                 </TableBody>
               </Table>
+              
+              <Pagination count={Math.ceil(data.getLeaderBoard.length/ postsPerPage)} 
+              page={currentPage} onChange={(event,value) =>  setCurrentPage(value)} />
+  
             </TableContainer>
           </div>
         </>
