@@ -363,7 +363,7 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
         <Typography variant="h3" align="center">
           {/* That`&apos;`s All for now. Stay tuned for next questions. we will be
           back soon */}
-         {timeLeftEnd>0 ? 'The contest will start soon !' : 'The contest has ended !'} 
+         {timeLeftEnd>0 ? Boolean(data) ? 'The contest will start soon !' : 'The contest has ended !' :'The contest has ended !' } 
         </Typography>
       </Box>
       )}
