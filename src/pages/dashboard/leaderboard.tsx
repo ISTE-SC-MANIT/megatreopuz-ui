@@ -118,7 +118,7 @@ const LeaderBoard: NextPage<ProtectedPageProps> = ({ viewer }) => {
     query
   );
   const [currentPage, setCurrentPage] = React.useState<any>(1);
-  const [postsPerPage] = React.useState(2);
+  const [postsPerPage] = React.useState(10);
   const indexOfLastPost : any = currentPage * postsPerPage;
   const indexOfFirstPost : any= indexOfLastPost - postsPerPage;
   const currentPosts : any =  data?.getLeaderBoard.slice(indexOfFirstPost, indexOfLastPost);
