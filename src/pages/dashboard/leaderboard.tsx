@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
   root: {
     minWidth: 650,
-
+    paddingBottom: '50px',
     marginTop: theme.spacing(16),
     "& .MuiTableContainer-root": {
       width: "80% !important",
@@ -109,6 +109,9 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     transform: "translateY(-50%)",
   },
+  paper: {
+    padding: "30px"
+  }
 }));
 
 const LeaderBoard: NextPage<ProtectedPageProps> = ({ viewer }) => {
@@ -140,7 +143,7 @@ const LeaderBoard: NextPage<ProtectedPageProps> = ({ viewer }) => {
       ) : (
         <>
           <div className={classes.root}>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} className={classes.paper}>
               <Table aria-label="caption table">
                 <caption>
                   Need to solve at least 1 question to make a place on leader

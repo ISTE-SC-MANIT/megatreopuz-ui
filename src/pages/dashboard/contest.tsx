@@ -25,6 +25,7 @@ import {
   Dialog,
   AppBar,
   IconButton,
+  Link,
 } from "@material-ui/core";
 import { NextPage } from "next";
 import { ProtectedPageProps } from "../_app";
@@ -59,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     boxSizing: "border-box",
     minHeight: "100vh",
+    [theme.breakpoints.down("sm")]: {
+      minHeight: "60vh",
+    }
   },
   box: {
     width: "70%",
@@ -123,6 +127,32 @@ const useStyles = makeStyles((theme) => ({
       width: "80%",
     },
   },
+  card: {
+    padding: '40px 60px',
+    // backgroundColor: theme.palette.mode === 'light' ? 'white' : '#0A1929',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: theme.spacing(3),
+    [theme.breakpoints.down("sm")]: {
+      padding: '30px',
+      margin: theme.spacing(2)
+    }
+  },
+  money: {
+    marginRight: '10px',
+    marginTop: '20px',
+    fontWeight: 'bold',
+    [theme.breakpoints.down("sm")]: {
+      fontSize: '20px'
+    }
+  },
+  cardRoot: {
+    width: "100%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 }));
 
 export interface DialogTitleProps extends WithStyles<typeof styles> {
@@ -210,6 +240,7 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
   const env = useRelayEnvironment();
   const [next, setNext] = React.useState(true);
   const [openImgDialog, setOpenImgDialog] = React.useState(false);
+  const [spread1, setSpread1] = React.useState(4);
 
   const { data, error, retry, isLoading } = useQuery<GetQuestionQuery>(query);
 
@@ -367,6 +398,23 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
             </Typography>
           </Box>
         )}
+      {/* <div className={classes.cardRoot}> */}
+      <Grid container justify="center" alignItems="center">
+        <Paper elevation={spread1} onMouseOver={() => setSpread1(spread1 + 9)}
+          onMouseOut={() => setSpread1(spread1 - 9)}
+          className={classes.card}>
+          <Link target="_blank" href='https://nados.pepcoding.com/auth/login?referralCode=CODATHON-22'>
+            <Image
+              src='/pepcodinglogo.png'
+              alt='logo'
+              width='200px'
+              height='200px'
+            />
+          </Link>
+          <Typography variant="h5" className={classes.money}>Our Event Sponsor</Typography>
+        </Paper>
+      </Grid>
+
     </div>
   );
 };
