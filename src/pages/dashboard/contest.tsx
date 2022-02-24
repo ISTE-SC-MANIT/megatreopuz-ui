@@ -77,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     width: "80%",
     lineHeight: "200px",
+    paddingBottom:"3%"
   },
   dialogActions: {
     display: "flex",
@@ -391,11 +392,13 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
       )
         : (
           <Box mt={20} className={classes.nullText}>
-            <Typography variant="h3" align="center">
+            <Typography  variant="h3" align="center">
               {/* That`&apos;`s All for now. Stay tuned for next questions. we will be
           back soon */}
               {timeLeftEnd > 0 ? Boolean(data) ? 'The contest will start soon !' : 'That`s All for now. Stay tuned, we will be back soon.' : 'The contest has ended !'}
+              
             </Typography>
+           
           </Box>
         )}
       {/* <div className={classes.cardRoot}> */}
