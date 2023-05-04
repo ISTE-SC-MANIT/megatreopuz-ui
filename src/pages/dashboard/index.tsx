@@ -94,8 +94,8 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
 	}
 
 	const current = moment();
-	const start = moment('2023-5-5');
-	const end = moment('2023-5-11');
+	const start = moment([2023, 4, 5, 18]);
+	const end = moment([2023, 4, 11, 18]);
 	const timeLeftStart = start.diff(current, 'hours');
 	const timeLeftEnd = end.diff(current, 'hours');
 	const minutesStart = start.diff(current, 'minutes');
