@@ -260,8 +260,8 @@ const QuestionComponent: NextPage<ProtectedPageProps> = ({ viewer }) => {
 		});
 	};
 	const current = moment();
-	const start = moment([2021, 1, 13, 18]);
-	const end = moment([2021, 1, 19, 18]);
+	const start = moment([2023, 4, 6, 17]);
+	const end = moment([2023, 4, 12, 17]);
 	const timeLeftStart = start.diff(current);
 	const timeLeftEnd = end.diff(current);
 	const contestStart = timeLeftStart < 0 && timeLeftEnd >= 0;
