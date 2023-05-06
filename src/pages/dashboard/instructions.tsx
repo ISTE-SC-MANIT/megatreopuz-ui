@@ -50,7 +50,7 @@ const UserDashboard: NextPage<ProtectedPageProps> = ({
 	const classes = useStyles();
 
 	const instructions = [
-		"1. Megatreopuz '23 will be live from 5th May 2023 at 6:00 pm till 11th May 2023.",
+		"1. Megatreopuz '23 will be live from 6th May 2023 at 5:00 pm till 12th May 2023.",
 		'2. A participant will receive successive questions. They will keep receiving questions until the cryptic hunt ends.',
 		'3. The participant who solves the most number of questions in the least amount of time will be declared as the winner.',
 		'4. The competition is open to everyone, there are no restrictions whatsoever.',
